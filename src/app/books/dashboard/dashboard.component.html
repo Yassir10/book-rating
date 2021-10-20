@@ -1,0 +1,12 @@
+<p>
+  <ng-container *ngIf="books.length === 0; else hasBooks">
+    Keine Bücher vorhanden
+  </ng-container>
+  <ng-template #hasBooks>
+    Anzahl Bücher: <strong>{{books.length}}</strong>
+  </ng-template>
+</p>
+<br-book *ngFor="let book of books" [book]="book"
+         (rateUp)="rateUp($event)"
+         (rateDown)="rateDown($event)"
+></br-book>
