@@ -9,20 +9,15 @@ import {BookRatingService} from "../shared/book-rating.service";
 })
 export class BookComponent implements OnInit {
   @Input() book?: Book;
-  isIncButtonDisabled?:boolean;
-  isDecButtonDisabled?: boolean;
+  @Input() max = 7;
+  @Input() min = 0;
 
   @Output() rateUp = new EventEmitter<Book>();
   @Output() rateDown = new EventEmitter<Book>();
 
-  constructor(private ratingService: BookRatingService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    if(this.book){
-      this.isIncButtonDisabled = this.ratingService.isIncButtonDisabled(this.book)
-      this.isDecButtonDisabled = this.ratingService.isDecButtonDisabled(this.book)
-    }
-  }
+  ngOnInit(): void {}
 
   doRateUp(){
     this.rateUp.emit(this.book);

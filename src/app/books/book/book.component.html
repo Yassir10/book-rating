@@ -12,7 +12,7 @@
     <p>Preis: {{ book.price | currency:'EUR' }}</p>
 <!--    <button type="button" class="btn btn-success mr-2" (click)="doRateUp()" [disabled]="book.rating === 5">+</button>-->
 <!--    <button type="button" class="btn btn-danger mr-2" (click)="doRateDown()" [disabled]="book.rating === 1">-</button>-->
-    <button type="button" class="btn btn-success mr-2" (click)="doRateUp()" [disabled]="isIncButtonDisabled">+</button>
-    <button type="button" class="btn btn-danger mr-2" (click)="doRateDown()" [disabled]="isDecButtonDisabled">-</button>
+    <button type="button" class="btn btn-success mr-2" (click)="doRateUp()" [disabled]="book.rating >= max">+</button>
+    <button type="button" class="btn btn-danger mr-2" (click)="doRateDown()" [disabled]="book.rating <= min">-</button>
   </div>
 </div>

@@ -9,6 +9,8 @@ import {BookRatingService} from "../shared/book-rating.service";
 })
 export class DashboardComponent implements OnInit {
   books: Book[] = [];
+  MAX_RATING = this.ratingService.MAX_RATING;
+  MIN_RATING = this.ratingService.MIN_RATING;
 
   constructor(private ratingService: BookRatingService) {
     this.books = [
